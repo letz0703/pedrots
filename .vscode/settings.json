@@ -1,0 +1,41 @@
+{
+  "workbench.colorTheme": "One Monokai",
+  "workbench.colorCustomizations": {
+    "tab.activeBackground": "#5086f1"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "entity.name.function.js",
+        "settings": {
+          "foreground": "#f1a4b6"
+        }
+      },
+      {
+        "scope": "variable.other.readwrite.js",
+        "settings": {
+          "foreground": "#61AFEF"
+        }
+      },
+      {
+        "scope": "entity.name.tag.js.jsx",
+        "settings": {
+          "foreground": "#4bee29"
+        }
+      },
+      {
+        "scope": "entity.name.function.js.jsx",
+        "settings": {
+          "foreground": "#fa84cc"
+        }
+      },
+
+      {
+        "scope": "variable.other.readwrite.alias.js.jsx",
+        "settings": {
+          "foreground": "#8482D1"
+        }
+      }
+    ]
+  }
+}
