@@ -1,8 +1,23 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {configureStore, createSlice} from "@reduxjs/toolkit";
 
-export const store = cofigureStore({
-  // gonna take reducer :https://youtu.be/yZqBVLcWSn8?t=296
-  // action & previous state then return new state
-  // it is a function how our states interact each other
-  // todo :App.tsx : import provider
+const initialState = {value: {username: ""}};
+
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    login: (state, action) => {
+      state.value = action.payload;
+    },
+    logout: (state) => {
+      state = initialState;
+    }
+  }
+});
+export const {login, logout} = userSlice.actions;
+
+export const store = configureStore({
+  reducer: {
+    user: userSlice.reducer
+  }
 });

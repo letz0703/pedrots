@@ -1,22 +1,24 @@
-import React from 'react';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-import {Home} from './pages/Home';
-import {About} from './pages/About';
-import {Login} from './pages/Login';
+import React from "react";
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {Home} from "./pages/Home";
+import {About} from "./pages/About";
+import {Login} from "./pages/Login";
+import {Provider} from "react-redux";
+import {store} from "./store";
 
-// prev: create configure store.ts with reduxjs/toolkit @store.ts
-import {Provider} from 'react-redux';
-// todo: 뭘 provide 할 건데? wrap components allowing acess to states
-// todo: <Router>를 감싼다.
 function App() {
   return (
     <div className='App'>
       <Provider store={store}>
         <Router>
+          <Link to='/'>homepage</Link>
+          <Link to='/login'>login</Link>
+          <Link to='/contact'>contact</Link>
           <Routes>
             <Route path='/' element={<Home />}></Route>
-            <Route path='/' element={<About />}></Route>
-            <Route path='/' element={<Login />}></Route>
+            <Route path='/home' element={<Home />}></Route>
+            <Route path='/about' element={<About />}></Route>
+            <Route path='/login' element={<Login />}></Route>
           </Routes>
         </Router>
       </Provider>
