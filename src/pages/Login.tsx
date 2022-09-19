@@ -11,7 +11,7 @@ export const Login = () => {
     <h1>
       this is Login page
       <input
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setNewUserName(e.target.value);
         }}
       />
@@ -22,7 +22,7 @@ export const Login = () => {
       >
         Submit Login
       </button>
-      <button>Logout</button>
+      <button onClick={() => dispatch(logout())}>Logout</button>
       <p>welcome {username}</p>
     </h1>
   );
