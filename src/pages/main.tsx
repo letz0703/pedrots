@@ -1,7 +1,12 @@
 import React from "react";
+import {Calc} from "../components/calc/calc";
 
 type Props = {};
 
 export const Main = (props: Props) => {
-  return <div>Main</div>;
+  return (
+    <div>
+      <Calc />
+    </div>
+  );
 };

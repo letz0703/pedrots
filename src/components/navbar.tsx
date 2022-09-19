@@ -6,7 +6,7 @@ type Props = {};
 export const Navbar = (props: Props) => {
   return (
     <div className={styles.nav}>
-      <Link to='/'>homepage</Link>
+      <Link to='/'>home</Link>
       <Link to='/login'>login</Link>
       <Link to='/contact'>contact</Link>
     </div>
