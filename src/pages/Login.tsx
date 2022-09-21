@@ -1,3 +1,5 @@
+import {auth, provider} from "../ts/firebase";
+import {signInWithPopup} from "firebase/auth";
 import React, {useState} from "react";
 import {login, logout} from "../store";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,10 +8,14 @@ export const Login = () => {
   const [newUserName, setNewUserName] = useState("");
   const dispatch = useDispatch();
   const username = useSelector((state: any) => state.user.value.username);
-
+  const signInWithGoogle = async () => {
+    const result = await signInWithPopup(auth, provider);
+    console.log(result);
+  };
   return (
     <h1>
-      this is Login page
+      <p>계속 하시려면 암호를 넣거나, google로 로그인 하세요</p>
+
       <input
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setNewUserName(e.target.value);
@@ -20,9 +26,10 @@ export const Login = () => {
           dispatch(login({username: newUserName}));
         }}
       >
-        Submit Login
+        로그인
       </button>
       <button onClick={() => dispatch(logout())}>Logout</button>
+      <button onClick={signInWithGoogle}>google 로그인</button>
       <p>welcome {username}</p>
     </h1>
   );
