@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+
 import {Home} from "./pages/Home";
 import {Navbar} from "./components/navbar";
 import {About} from "./pages/About";
@@ -9,6 +10,10 @@ import {Main} from "./pages/main";
 import "./App.css";
 
 function App() {
+  // useEffect(() => {
+  //   console.log("호출 useEffect");
+  // }, [location]);
+
   return (
     <div className='App'>
       <Provider store={store}>

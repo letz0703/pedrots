@@ -4,9 +4,5 @@ import {Calc} from "../components/calc/calc";
 type Props = {};
 
 export const Main = (props: Props) => {
-  return (
-    <div>
-      <Calc />
-    </div>
-  );
+  return <div></div>;
 };
