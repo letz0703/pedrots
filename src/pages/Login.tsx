@@ -10,11 +10,13 @@ export const Login = () => {
   const [newUserName, setNewUserName] = useState("");
   const dispatch = useDispatch();
   const username = useSelector((state: any) => state.user.value.username);
+
   const signInWithGoogle = async () => {
     const result = await signInWithPopup(auth, provider);
     console.log(result);
     navigate("/");
   };
+
   return (
     <h1>
       <p>계속 하시려면 암호를 넣거나, google로 로그인 하세요</p>
