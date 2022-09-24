@@ -16,7 +16,7 @@ const userSlice = createSlice({
     login: (state: UserState, action: PayloadAction<UserStateValue>) => {
       state.value = action.payload;
     },
-    logout: (state) => {
+    logout: (state: UserState) => {
       state.value = initialState.value;
     }
   }

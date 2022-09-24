@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [newUserName, setNewUserName] = useState("");
+  const [newUserName, setNewUserName] = useState<string>("");
   const dispatch = useDispatch();
   const username = useSelector((state: any) => state.user.value.username);
 

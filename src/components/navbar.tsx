@@ -1,12 +1,13 @@
 import {Link} from "react-router-dom";
 import styles from "./navbar.module.css";
 import {auth} from "../ts/firebase";
+import {useAuthState} from "react-firebase-hooks/auth";
 
 type Props = {};
 
 export const Navbar = (props: Props) => {
-  const displayUserName = auth.currentUser?.displayName;
-  const displayUserPhoto = auth.currentUser?.photoURL;
+  // const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   return (
     <>
@@ -16,8 +17,9 @@ export const Navbar = (props: Props) => {
         <Link to='/contact'>contact</Link>
       </div>
       <div>
-        <p>{displayUserName}</p>
-        <img src={displayUserPhoto || ""} />
+        {/* <p>{displayUserName}</p> */}
+        <p>{user?.displayName}</p>
+        <img src={user?.photoURL || ""} width='100' height='100' />
       </div>
     </>
   );
