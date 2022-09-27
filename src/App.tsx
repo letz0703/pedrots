@@ -20,10 +20,9 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path='/' element={<Main />} />
+            <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/home' element={<Home />} />
-            <Route path='/about' element={<About />} />
           </Routes>
         </Router>
       </Provider>
