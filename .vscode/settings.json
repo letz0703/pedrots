@@ -1,7 +1,7 @@
 {
   "workbench.colorTheme": "One Monokai",
   "workbench.colorCustomizations": {
-    "tab.activeBackground": "#d26c1a"
+    "tab.activeBackground": "#006ac1"
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
