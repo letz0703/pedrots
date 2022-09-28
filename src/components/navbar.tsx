@@ -13,7 +13,13 @@ export const Navbar = (props: Props) => {
     <>
       <div className={styles.nav}>
         <Link to='/'>home</Link>
-        <Link to='/login'>login</Link>
+        {!user ? (
+          <Link to='/login'>login</Link>
+        ) : (
+          <>
+            <Link to='/create-post'>create a post</Link>
+          </>
+        )}
       </div>
       <div>
         <p>{user?.displayName}</p>

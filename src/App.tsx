@@ -8,6 +8,7 @@ import {Provider} from "react-redux";
 import {store} from "./store";
 import {Main} from "./pages/main";
 import "./App.css";
+import CreatePost from "./pages/create-post/create-post";
 
 function App() {
   // useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/home' element={<Home />} />
+            <Route path='/create-post' element={<CreatePost />} />
           </Routes>
         </Router>
       </Provider>
