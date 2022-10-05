@@ -3,6 +3,8 @@ import {useForm} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 //import styles from './create-form.module.css'
+import {addDoc, collection} from "firebase/firestore";
+import {db} from "../../ts/firebase";
 
 export const CreateForm = () => {
   const schema = yup.object().shape({
@@ -24,6 +26,8 @@ export const CreateForm = () => {
   const onCreatePost = (data: createFormData) => {
     console.log(data);
   };
+
+  const postRef = collection(db, "posts");
   return (
     <>
       <h1>CreateForm</h1>
