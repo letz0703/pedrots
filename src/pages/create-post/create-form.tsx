@@ -6,21 +6,32 @@ import {yupResolver} from "@hookform/resolvers/yup";
 
 export const CreateForm = () => {
   const schema = yup.object().shape({
-    title: yup.string().required("Error Message"),
-    description: yup.string().required("Error Message")
+    title: yup.string().required("Need Title"),
+    description: yup.string().required("Descritption")
   });
 
-  const res_schema_into_yupResolver = yupResolver(schema);
-  const {} = useForm({resolver: res_schema_into_yupResolver});
-  const myStyle = {
-    backgroundColor: "orange"
+  interface createFormData {
+    title: string;
+    description: string;
+  }
+
+  const {
+    register,
+    handleSubmit,
+    formState: {errors}
+  } = useForm<createFormData>({resolver: yupResolver(schema)});
+
+  const onCreatePost = (data: createFormData) => {
+    console.log(data);
   };
   return (
     <>
-      <h1 style={myStyle}>CreateForm</h1>
-      <form>
-        <input placeholder='Title...' />
-        <textarea placeholder='Description...' />
+      <h1>CreateForm</h1>
+      <form onSubmit={handleSubmit(onCreatePost)}>
+        <input placeholder='Title...' {...register("title")} />
+        <p>{errors.title?.message}</p>
+        <textarea placeholder='Description...' {...register("description")} />
+        <p>{errors.description?.message}</p>
         <input type='submit' />
       </form>
     </>

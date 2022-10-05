@@ -20,10 +20,10 @@ export const Navbar = (props: Props) => {
             <Link to='/create-post'>create a post</Link>
           </>
         )}
-      </div>
-      <div>
-        <p>{user?.displayName}</p>
-        <img src={user?.photoURL || ""} width='100' height='100' />
+        <div className={styles.google_user_info}>
+          <p>{user?.displayName}</p>
+          <img src={user?.photoURL || ""} />
+        </div>
       </div>
     </>
   );
