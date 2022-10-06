@@ -24,10 +24,12 @@ export const CreateForm = () => {
   } = useForm<createFormData>({resolver: yupResolver(schema)});
 
   const onCreatePost = (data: createFormData) => {
-    console.log(data);
+    // console.log(data);
+    addDoc(postRef, {title: data.title, description: data.description});
   };
 
-  const postRef = collection(db, "posts");
+  const postRef = collection(db, "posts"); // db = getFirestore(app)
+
   return (
     <>
       <h1>CreateForm</h1>
