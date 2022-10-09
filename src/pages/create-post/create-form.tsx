@@ -26,9 +26,9 @@ export const CreateForm = () => {
     formState: {errors}
   } = useForm<createFormData>({resolver: yupResolver(schema)});
 
-  const onCreatePost = (data: createFormData) => {
+  const onCreatePost = async (data: createFormData) => {
     // console.log(data);
-    addDoc(
+    await addDoc(
       postRef, //
       {
         title: data.title,
