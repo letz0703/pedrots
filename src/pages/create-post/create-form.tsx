@@ -6,8 +6,10 @@ import {addDoc, collection} from "firebase/firestore";
 import {db} from "../../ts/firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {auth} from "../../ts/firebase";
+import {useNavigate} from "react-router-dom";
 
 export const CreateForm = () => {
+  const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const schema = yup.object().shape({
     title: yup.string().required("Need Title"),
@@ -34,6 +36,7 @@ export const CreateForm = () => {
       username: user?.displayName,
       userId: user?.uid
     });
+    navigate("/");
   };
 
   const postRef = collection(db, "posts"); // db = getFirestore(app)
