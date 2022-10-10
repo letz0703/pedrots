@@ -2,7 +2,6 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
-//import styles from './create-form.module.css'
 import {addDoc, collection} from "firebase/firestore";
 import {db} from "../../ts/firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
@@ -28,15 +27,13 @@ export const CreateForm = () => {
 
   const onCreatePost = async (data: createFormData) => {
     // console.log(data);
-    await addDoc(
-      postRef, //
-      {
-        title: data.title,
-        description: data.description,
-        username: user?.displayName,
-        userId: user?.uid
-      }
-    );
+    await addDoc(postRef, {
+      // title: data.title,
+      // description: data.description,
+      ...data,
+      username: user?.displayName,
+      userId: user?.uid
+    });
   };
 
   const postRef = collection(db, "posts"); // db = getFirestore(app)
@@ -49,7 +46,7 @@ export const CreateForm = () => {
         <p>{errors.title?.message}</p>
         <textarea placeholder='Description...' {...register("description")} />
         <p>{errors.description?.message}</p>
-        <input type='submit' />
+        <input type='submit' className='submitForm' />
       </form>
     </>
   );
