@@ -29,7 +29,7 @@ export const CreateForm = () => {
 
   const onCreatePost = async (data: createFormData) => {
     // console.log(data);
-    await addDoc(postRef, {
+    await addDoc(posRefs, {
       // title: data.title,
       // description: data.description,
       ...data,
@@ -39,7 +39,7 @@ export const CreateForm = () => {
     navigate("/");
   };
 
-  const postRef = collection(db, "posts"); // db = getFirestore(app)
+  const posRefs = collection(db, "posts"); // db = getFirestore(app)
 
   return (
     <>
