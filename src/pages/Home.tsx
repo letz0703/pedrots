@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+// import {useDispatch, useSelector} from "react-redux";
 import {getDocs, collection} from "firebase/firestore/lite";
 import {db} from "../ts/firebase";
+// import {doc} from "firebase/firestore/lite";
 
 export const Home = () => {
   // const username = useSelector((state: any) => state.user.value.username);
@@ -10,12 +11,10 @@ export const Home = () => {
 
   const getPosts = async () => {
     const data = await getDocs(postRef);
-    console.log(data);
+    console.log(data.docs.map((row) => ({...row.data, id: row.id})));
   };
 
   getPosts();
 
   return <div>Home Page</div>;
-
-  // return <div>{username && <h1>{username}!</h1>} wlecome to our Home</div>;
 };
