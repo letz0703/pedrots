@@ -1,8 +1,14 @@
-import React from "react";
-import {Calc} from "../components/calc/calc";
+import {useState} from "react";
+import {getDocs, collection} from "firebase/firestore/lite";
+import {db} from "../ts/firebase";
 
-type Props = {};
+export const Main = () => {
+  const [postList, setPostList] = useState("");
+  const postRef = collection(db, "posts");
 
-export const Main = (props: Props) => {
-  return <div></div>;
+  const getPosts = async () => {
+    const result = await getDocs(postRef);
+  };
+
+  return <div>Home Page</div>;
 };
