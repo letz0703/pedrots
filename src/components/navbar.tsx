@@ -8,7 +8,7 @@ type Props = {};
 export const Navbar = (props: Props) => {
   // const [user, loading, error] = useAuthState(auth);
   const [user] = useAuthState(auth);
-
+  //TODO: menu design 수정
   return (
     <>
       <div className={styles.nav}>

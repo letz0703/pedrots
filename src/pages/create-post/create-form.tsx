@@ -2,7 +2,7 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {addDoc, collection} from "firebase/firestore";
+import {addDoc, collection} from "firebase/firestore/lite";
 import {db} from "../../ts/firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {auth} from "../../ts/firebase";
