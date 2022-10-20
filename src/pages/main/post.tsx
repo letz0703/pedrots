@@ -40,7 +40,7 @@ const Post = (props: Props) => {
       <div className='body'>
         <p>{post.description}</p>
       </div>
-      {/* Liking System  */}
+      {/* Liking System : https://bit.ly/3SmeIzo */}
       <div className='footer'>
         <p>@{post.username}</p>
         <button onClick={addLike}>&#128077;</button>
