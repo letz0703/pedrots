@@ -19,7 +19,7 @@ export const Main = () => {
     // console.log(result.docs.map((row) => ({...row.data(), id: row.id})));
     setPostList(result.docs.map((row) => ({...row.data(), id: row.id})) as Post[])
   }
-  // XXX: PEDRO 17월-2210
+  // PEDRO 17월-2210
   // https://youtu.be/skstYc-K6ws?list=PLpPqplz6dKxW5ZfERUPoYTtNUNvrEebAR&t=619
 
   useEffect(() => {
@@ -27,12 +27,12 @@ export const Main = () => {
   }, [])
 
   // return <div>Home Page</div>
-  // TODO: Loop thru postList
   return (
-    <>
+    <div>
+      <h1>hi</h1>
       {postList?.map((row) => (
         <Post post={row} />
       ))}
-    </>
+    </div>
   )
 }
