@@ -1,32 +1,33 @@
-import React from "react";
-import {useForm} from "react-hook-form";
-import * as yup from "yup";
-import {yupResolver} from "@hookform/resolvers/yup";
-import {addDoc, collection} from "firebase/firestore/lite";
-import {db} from "../../ts/firebase";
-import {useAuthState} from "react-firebase-hooks/auth";
-import {auth} from "../../ts/firebase";
-import {useNavigate} from "react-router-dom";
+import React from "react"
+import {useForm} from "react-hook-form"
+import * as yup from "yup"
+import {yupResolver} from "@hookform/resolvers/yup"
+import {addDoc, collection} from "firebase/firestore/lite"
+import {db} from "../../ts/firebase"
+import {useAuthState} from "react-firebase-hooks/auth"
+import {auth} from "../../ts/firebase"
+import {useNavigate} from "react-router-dom"
 
 export const CreateForm = () => {
-  const navigate = useNavigate();
-  const [user] = useAuthState(auth);
+  const navigate = useNavigate()
+  const [user] = useAuthState(auth)
   const schema = yup.object().shape({
     title: yup.string().required("Need Title"),
     description: yup.string().required("Descritption")
-  });
+  })
 
   interface createFormData {
-    title: string;
-    description: string;
+    title: string
+    description: string
   }
 
   const {
     register,
     handleSubmit,
     formState: {errors}
-  } = useForm<createFormData>({resolver: yupResolver(schema)});
+  } = useForm<createFormData>({resolver: yupResolver(schema)})
 
+  const posRefs = collection(db, "posts") // db = getFirestore(app)
   const onCreatePost = async (data: createFormData) => {
     // console.log(data);
     await addDoc(posRefs, {
@@ -35,11 +36,9 @@ export const CreateForm = () => {
       ...data,
       username: user?.displayName,
       userId: user?.uid
-    });
-    navigate("/");
-  };
-
-  const posRefs = collection(db, "posts"); // db = getFirestore(app)
+    })
+    navigate("/")
+  }
 
   return (
     <>
@@ -52,7 +51,7 @@ export const CreateForm = () => {
         <input type='submit' className='submitForm' />
       </form>
     </>
-  );
-};
+  )
+}
 
-export default CreateForm;
+export default CreateForm
