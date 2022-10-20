@@ -1,14 +1,14 @@
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 
-import {Home} from "./pages/Home";
-import {Navbar} from "./components/navbar";
-import {About} from "./pages/About";
-import {Login} from "./pages/Login";
-import {Provider} from "react-redux";
-import {store} from "./store";
-import {Main} from "./pages/main";
-import "./App.css";
-import CreatePost from "./pages/create-post/create-post";
+import {Home} from "./pages/Home"
+import {Navbar} from "./components/navbar"
+import {About} from "./pages/About"
+import {Login} from "./pages/Login"
+import {Provider} from "react-redux"
+import {store} from "./store"
+import {Main} from "./pages/main/main"
+import "./App.css"
+import CreatePost from "./pages/create-post/create-post"
 
 function App() {
   // useEffect(() => {
@@ -29,7 +29,7 @@ function App() {
         </Router>
       </Provider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

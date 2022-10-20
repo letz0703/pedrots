@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react"
 import {getDocs, collection} from "firebase/firestore/lite"
-import {db} from "../ts/firebase"
+import {db} from "../../ts/firebase"
+import Post from "./post"
 
-interface Post {
+export interface Post {
   id: string
   userId: string
   title: string
@@ -25,5 +26,13 @@ export const Main = () => {
     getDocs_postRef()
   }, [])
 
-  return <div>Home Page</div> // TODO: Loop thru postList
+  // return <div>Home Page</div>
+  // TODO: Loop thru postList
+  return (
+    <>
+      {postList?.map((row) => (
+        <Post post={row} />
+      ))}
+    </>
+  )
 }
