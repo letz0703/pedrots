@@ -8,19 +8,23 @@ interface Props {
   post: IPost
 }
 
+interface Like {
+  userId: string
+}
+
 const Post = (props: Props) => {
   const {post} = props
   //shape POSTs https://bit.ly/3VNGAQb 221021
   const [user] = useAuthState(auth)
 
-  const [likeAmount, setLikeAmount] = useState<number | null>(null)
+  const [like, setLike] = useState<Like[] | null>(null)
 
   const likesRef = collection(db, "likes") // db = getFirestore(app)
   const likesDoc = query(likesRef, where("postId", "==", post.id))
 
   const getLikes = async () => {
     const data = await getDocs(likesDoc)
-    setLikeAmount(data.docs.length)
+    setLike(data.docs.map((row) =>({userId: row.data().userId}))
     // console.log(data.docs.map((row) => ({...row.data(), id: row.id})))
   }
 
