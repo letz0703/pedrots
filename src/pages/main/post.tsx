@@ -48,7 +48,7 @@ const Post = (props: Props) => {
       <div className='footer'>
         <p>@{post.username}</p>
         <button onClick={addLike}>&#128077;</button>
-        {likeAmount && <p>likes:{likeAmount} </p>}
+        {like && <p>likes:{like.length} </p>}
       </div>
     </>
   )
