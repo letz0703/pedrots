@@ -24,7 +24,7 @@ const Post = (props: Props) => {
 
   const getLikes = async () => {
     const data = await getDocs(likesDoc)
-    setLike(data.docs.map((row) =>({userId: row.data().userId}))
+    setLike(data.docs.map((row) => ({userId: row.data().userId})))
     // console.log(data.docs.map((row) => ({...row.data(), id: row.id})))
   }
 
